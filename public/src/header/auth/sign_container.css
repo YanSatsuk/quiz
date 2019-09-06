@@ -1,0 +1,12 @@
+.sign-container {
+    display: flex;
+    font-weight: bold;
+}
+
+.sign-container:last-child {
+    margin-right: var(--header-margin);
+}
+
+.sign-container--separator {
+    padding: 0 5px 0 5px;
+}

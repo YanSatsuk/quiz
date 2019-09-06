@@ -1,0 +1,16 @@
+.sign-from {
+    padding-top: var(--form-top-padding);
+}
+
+.sign-from--login {
+    margin-bottom: 5px;
+}
+
+.sign-from--button {
+    text-align: center;
+    margin-top: var(--form-margin-top);
+}
+
+.sign-from--url {
+    visibility: hidden;
+}

@@ -1,0 +1,26 @@
+@import "./variables.css";
+@import "./src/header/header.css";
+@import "./src/app/app.css";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: aqua;
+    justify-content: space-between;
+}
+
+#app {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-link {
+    text-decoration-line: none;
+}
+
