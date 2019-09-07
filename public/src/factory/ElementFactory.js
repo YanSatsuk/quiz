@@ -18,6 +18,7 @@ class ElementFactory {
             element.set_events();
         } else if (element instanceof QuizContainer) {
             root.innerHTML = element.render();
+            element.set_events();
         }
     }
 }
