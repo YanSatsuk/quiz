@@ -1,15 +1,20 @@
 import {route_elements, routes} from './routes.js';
+import ElementFactory from '../factory/ElementFactory.js';
 
 class Router {
-    listen_url_change(callback) {
+    constructor(root_element) {
+        this._root = root_element;
+    }
+
+    listen_url_change() {
         window.onhashchange = () => {
-            callback(location.hash);
+            this.change_route();
         }
     }
 
-    has_url() {
+/*    has_url() {
         return !!location.hash;
-    }
+    }*/
 
     static get current_url() {
         return location.hash;
@@ -21,6 +26,13 @@ class Router {
 
     static get routes() {
         return routes;
+    }
+
+    change_route() {
+        ElementFactory.set_element_and_render(
+            this._root,
+            this.selected_element,
+        );
     }
 }
 

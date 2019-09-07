@@ -1,5 +1,6 @@
 import SignForm from '../app/signform/SignForm.js';
 import Router from '../router/Router.js';
+import QuizContainer from '../app/quiz/QuizContainer.js';
 
 class ElementFactory {
     static set_element_and_render(root, element) {
@@ -15,6 +16,8 @@ class ElementFactory {
         ) {
             root.innerHTML = element.render_sign_up_form();
             element.set_events();
+        } else if (element instanceof QuizContainer) {
+            root.innerHTML = element.render();
         }
     }
 }

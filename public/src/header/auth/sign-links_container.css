@@ -1,12 +1,12 @@
-.sign-container {
+.sign-links-container {
     display: flex;
     font-weight: bold;
 }
 
-.sign-container:last-child {
+.sign-links-container:last-child {
     margin-right: var(--header-margin);
 }
 
-.sign-container--separator {
+.sign-links-container--separator {
     padding: 0 5px 0 5px;
 }

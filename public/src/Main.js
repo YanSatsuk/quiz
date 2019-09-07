@@ -1,7 +1,6 @@
 import Logo from './header/logo/Logo.js';
-import SignContainer from './header/auth/SignContainer.js';
+import SignLinksContainer from './header/auth/SignLinksContainer.js';
 import Router from './router/Router.js';
-import ElementFactory from './factory/ElementFactory.js';
 
 class Main {
     constructor() {
@@ -15,9 +14,9 @@ class Main {
     }
 
     _initialize_subclasses() {
-        this._router = new Router();
+        this._router = new Router(this._app);
         this._logo = new Logo();
-        this._sign_container = new SignContainer();
+        this._sign_container = new SignLinksContainer();
     }
 
     init_app() {
@@ -28,24 +27,11 @@ class Main {
     }
 
     _initial_url() {
-        this._is_need_change_url();
+        this._router.change_route();
     }
 
     _listen_url_change() {
-        this._router.listen_url_change((url) => {
-            this._is_need_change_url();
-        });
-    }
-
-    _is_need_change_url() {
-        if (this._router.has_url()) {
-            ElementFactory.set_element_and_render(
-                this._app,
-                this._router.selected_element
-            );
-        } else {
-            this._app.innerHTML = '';
-        }
+        this._router.listen_url_change();
     }
 
     _render_header() {
