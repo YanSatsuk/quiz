@@ -43,6 +43,8 @@ class Main {
                 this._app,
                 this._router.selected_element
             );
+        } else {
+            this._app.innerHTML = '';
         }
     }
 

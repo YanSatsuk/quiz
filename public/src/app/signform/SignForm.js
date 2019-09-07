@@ -1,11 +1,11 @@
 const STATE = {
     sign_in: {
         url: '/signin',
-        btn_value: 'Sign In',
+        value: 'Sign In',
     },
     sign_up: {
         url: '/signup',
-        btn_value: 'Sign Up',
+        value: 'Sign Up',
     },
 };
 
@@ -21,6 +21,7 @@ class SignForm {
     _render(state) {
         return `
         <div class="sign-from">
+            <h3 class="text-center">${state.value} Form</h3>
             <form id="sign-form">
                 <label for="login">Login</label>
                 <br>
@@ -48,8 +49,8 @@ class SignForm {
                     id="sign_url" 
                     name="url" 
                     value="${state.url}">
-                <div class="sign-from--button">
-                    <input type="submit" value="${state.btn_value}">
+                <div class="sign-from--button-container text-center">
+                    <input type="submit" value="${state.value}" class="sign-from--button">
                 </div>         
             </form>
         </div>

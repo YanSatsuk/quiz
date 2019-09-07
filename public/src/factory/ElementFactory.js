@@ -15,8 +15,6 @@ class ElementFactory {
         ) {
             root.innerHTML = element.render_sign_up_form();
             element.set_events();
-        } else {
-            root.innerHTML = '';
         }
     }
 }

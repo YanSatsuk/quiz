@@ -2,7 +2,7 @@ class Logo {
     render() {
         return `
         <div class="logo">
-            <span class="logo--title">Quiz app</span>
+            <a href="/#" class="logo--title nav-link">Quiz app</a>
         </div>
         `;
     }
