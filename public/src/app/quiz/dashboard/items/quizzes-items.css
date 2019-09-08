@@ -1,0 +1,28 @@
+.quizzes-items {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.quizzes-items--item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+    height: 220px;
+    background-color: lightgoldenrodyellow;
+    margin: 0 0 10px 10px;
+}
+.quizzes-items--title {
+    padding-bottom: var(--quizzes-item-padding);
+}
+
+.quizzes-items--questions {
+    padding-bottom: var(--quizzes-item-padding);
+}
+
+.quizzes-items--button {
+    width: 100px;
+    height: 40px;
+}

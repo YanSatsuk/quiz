@@ -21,15 +21,15 @@ const itemsMock = [
     },
 ];
 
-const COMPONENT_CSS = 'quiz-list';
+const COMPONENT_CSS = 'quiz-categories-list';
 
 const CSS = {
-    ul: `${COMPONENT_CSS}--ul`,
-    li: `${COMPONENT_CSS}--li`,
-    li_active: `${COMPONENT_CSS}--li__active`,
+    UL: `${COMPONENT_CSS}--ul`,
+    LI: `${COMPONENT_CSS}--li`,
+    LI_ACTIVE: `${COMPONENT_CSS}--li__active`,
 };
 
-class QuizList {
+class QuizCategoriesList {
     constructor() {
         this._items = itemsMock;
     }
@@ -39,7 +39,7 @@ class QuizList {
 
         return `
         <div class="${COMPONENT_CSS}">
-            <ul class="${CSS.ul}" id="${CSS.ul}">
+            <ul class="${CSS.UL}" id="${CSS.UL}">
                 ${items}
             </ul>
         </div>
@@ -48,14 +48,16 @@ class QuizList {
 
     _get_items() {
         let items = '';
+
         this._items.forEach(item =>
-            items += `<li class="${CSS.li}">${item.name}</li>`
+            items += `<li class="${CSS.LI}">${item.name}</li>`
         );
+
         return items;
     }
 
     set_events() {
-        const list = document.getElementById(CSS.ul);
+        const list = document.getElementById(CSS.UL);
         list.onclick = (e) => this._on_click(e);
     }
 
@@ -70,14 +72,14 @@ class QuizList {
     }
 
     _highlight_selected_item(target) {
-        const list = document.getElementById(CSS.ul);
+        const list = document.getElementById(CSS.UL);
 
         for (let item of list.children) {
-            item.classList.remove(CSS.li_active);
+            item.classList.contains(CSS.LI_ACTIVE) && item.classList.remove(CSS.LI_ACTIVE);
         }
 
-        target.classList.add(CSS.li_active);
+        target.classList.add(CSS.LI_ACTIVE);
     }
 }
 
-export default QuizList;
+export default QuizCategoriesList;

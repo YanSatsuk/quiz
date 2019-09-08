@@ -1,0 +1,16 @@
+.quiz-categories-list--ul {
+    list-style-type: none;
+}
+
+.quiz-categories-list--li {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.quiz-categories-list--li:hover:not(.quiz-categories-list--li__active) {
+    background-color: lightgoldenrodyellow;
+}
+
+.quiz-categories-list--li__active {
+    background-color: goldenrod;
+}

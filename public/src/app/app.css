@@ -1,4 +1,6 @@
 @import "./signform/sign_form.css";
 @import "./quiz/quiz-container.css";
 @import "./quiz/menu/quiz-menu.css";
-@import "./quiz/menu/list/quiz-list.css";
+@import "./quiz/menu/list/quiz-categories-list.css";
+@import "./quiz/dashboard/quiz-dashboard.css";
+@import "./quiz/dashboard/items/quizzes-items.css";

@@ -1,8 +1,8 @@
-import QuizList from './list/QuizList.js';
+import QuizCategoriesList from './list/QuizCategoriesList.js';
 
 class QuizMenu {
     constructor() {
-        this._list = new QuizList();
+        this._list = new QuizCategoriesList();
     }
 
     render() {
