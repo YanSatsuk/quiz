@@ -1,4 +1,6 @@
 import QuizCategoriesList from '../../menu/list/QuizCategoriesList.js';
+import Router from '../../../../router/Router.js';
+import GlobalState from '../../../state/GlobalState.js';
 
 const itemsMock = [
     {
@@ -92,7 +94,7 @@ class QuizzesItems {
                     <h2>${quiz.questions} Questions</h2>
                 </div>
                 <div class="${CSS.BUTTON_CONTAINER} text-center">
-                    <button class="${CSS.BUTTON}">Start Quiz</button>
+                    <button class="${CSS.BUTTON}" data-key="${quiz.name}">Start Quiz</button>
                 </div>
             </div>
             `;
@@ -110,7 +112,8 @@ class QuizzesItems {
             return;
         }
 
-        console.log(e.target);
+        Router.url = `test`;
+        GlobalState.get_instance().test = e.target.getAttribute('data-key');
     }
 }
 

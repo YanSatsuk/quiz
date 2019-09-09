@@ -12,10 +12,6 @@ class Router {
         }
     }
 
-/*    has_url() {
-        return !!location.hash;
-    }*/
-
     static get current_url() {
         return location.hash;
     }
@@ -33,6 +29,10 @@ class Router {
             this._root,
             this.selected_element,
         );
+    }
+
+    static set url(url) {
+        location.hash = url;
     }
 }
 

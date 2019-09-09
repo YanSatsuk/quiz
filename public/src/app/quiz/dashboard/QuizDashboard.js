@@ -4,9 +4,8 @@ const COMPONENT_CSS = 'quiz-dashboard';
 
 class QuizDashboard {
     constructor(params) {
-        this._menu_event_listener = params.listener;
         this._quizzes = new QuizzesItems({
-            listener: this._menu_event_listener,
+            listener: params.listener,
         });
     }
 
