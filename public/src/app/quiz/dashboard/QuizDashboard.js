@@ -3,8 +3,11 @@ import QuizzesItems from './items/QuizzesItems.js';
 const COMPONENT_CSS = 'quiz-dashboard';
 
 class QuizDashboard {
-    constructor() {
-        this._quizzes = new QuizzesItems();
+    constructor(params) {
+        this._menu_event_listener = params.listener;
+        this._quizzes = new QuizzesItems({
+            listener: this._menu_event_listener,
+        });
     }
 
     render() {

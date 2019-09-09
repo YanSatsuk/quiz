@@ -29,8 +29,13 @@ const CSS = {
     LI_ACTIVE: `${COMPONENT_CSS}--li__active`,
 };
 
+const EVENTS = {
+    MENU_CLICKED: 'category_menu:clicked',
+};
+
 class QuizCategoriesList {
-    constructor() {
+    constructor(params) {
+        this._menu_event_listener = params.listener;
         this._items = itemsMock;
     }
 
@@ -44,6 +49,10 @@ class QuizCategoriesList {
             </ul>
         </div>
         `;
+    }
+
+    static get EVENTS() {
+        return EVENTS;
     }
 
     _get_items() {
@@ -69,6 +78,7 @@ class QuizCategoriesList {
         }
 
         this._highlight_selected_item(e.target);
+        this._menu_event_listener.notify(EVENTS.MENU_CLICKED, e.target);
     }
 
     _highlight_selected_item(target) {

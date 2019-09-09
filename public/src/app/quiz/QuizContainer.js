@@ -1,10 +1,16 @@
 import QuizMenu from './menu/QuizMenu.js';
 import QuizDashboard from './dashboard/QuizDashboard.js';
+import EventListener from '../../helpers/EventListener.js';
 
 class QuizContainer {
     constructor() {
-        this._menu = new QuizMenu();
-        this._dashboard = new QuizDashboard();
+        this._menu_event_listener = new EventListener();
+        this._menu = new QuizMenu({
+            listener: this._menu_event_listener,
+        });
+        this._dashboard = new QuizDashboard({
+            listener: this._menu_event_listener,
+        });
     }
 
     render() {

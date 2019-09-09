@@ -1,8 +1,11 @@
 import QuizCategoriesList from './list/QuizCategoriesList.js';
 
 class QuizMenu {
-    constructor() {
-        this._list = new QuizCategoriesList();
+    constructor(params) {
+        this._menu_event_listener = params.listener;
+        this._list = new QuizCategoriesList({
+            listener: this._menu_event_listener,
+        });
     }
 
     render() {
