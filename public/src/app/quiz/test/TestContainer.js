@@ -8,9 +8,13 @@ class TestContainer {
     render() {
         return `
         <div class="test-container">
-            <h1>${this._test.render()}</h1>
+            ${this._test.render()}
         </div>
         `;
+    }
+
+    set_events() {
+        this._test.set_events();
     }
 }
 

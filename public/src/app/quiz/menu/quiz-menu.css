@@ -1,5 +1,5 @@
 .quiz-menu {
-    width: 300px;
+    min-width: 300px;
     box-shadow: 5px -3px 4px -7px darkslategrey;
     overflow-y: auto;
 }

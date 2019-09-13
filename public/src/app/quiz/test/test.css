@@ -1,0 +1,22 @@
+.test--answer {
+    width: 700px;
+    height: 60px;
+    background-color: antiquewhite;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.test--answer input {
+    margin-right: 5px;
+}
+
+.test--answer label {
+    width: 100%;
+}
+
+.test--button button {
+    width: 120px;
+    height: 45px;
+}
