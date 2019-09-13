@@ -20,3 +20,33 @@
     width: 120px;
     height: 45px;
 }
+
+.test--result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.test--buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.test--buttons button:first-child {
+    margin-right: 5px;
+}
+
+.button {
+    width: 130px;
+    height: 25px;
+}
+
+.test {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}

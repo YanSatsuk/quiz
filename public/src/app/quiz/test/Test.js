@@ -1,3 +1,5 @@
+import TestResult from './TestResult.js';
+
 const mockData = [
     {
         question: 'Кто круче супермена?',
@@ -71,6 +73,8 @@ const CSS = {
     QUESTION: `${COMPONENT_CSS}--question`,
     ANSWER: `${COMPONENT_CSS}--answer`,
     BUTTON: `${COMPONENT_CSS}--button`,
+    RESULT: `${COMPONENT_CSS}--result`,
+    BUTTONS: `${COMPONENT_CSS}--buttons`,
 };
 
 class Test {
@@ -99,7 +103,7 @@ class Test {
             test_data += this._build_template(this._data[this._index++]);
         } else {
             test_data += this._show_result(this._get_score());
-            console.log(this._get_score());
+            this.set_events();
         }
 
         return test_data;
@@ -139,9 +143,14 @@ class Test {
 
     set_events() {
         const button = document.getElementById(CSS.BUTTON);
+        const result_button = document.getElementById(CSS.RESULT);
 
         if (button) {
             button.onclick = () => this._handle_click();
+        }
+
+        if (result_button) {
+            result_button.onclick = () => this._show_results();
         }
     }
 
@@ -191,6 +200,8 @@ class Test {
             result.push(temp);
         });
 
+        score.percent = this._get_percent_of_guessed(score);
+
         return {
             result: result,
             score: score,
@@ -216,17 +227,34 @@ class Test {
     }
 
     _show_result(object) {
-        const { score: { total: total, correct: correct } } = object;
-        const percent = Math.floor((100 * correct) / total);
-
         return `
-        <div class="test--result">
-            <h2>Result: </h2>
-            <span>${correct} of ${total}</span>
-            <br>
-            <span>${percent}%</span>
+        <div class="${CSS.RESULT}">
+            ${this.constructor._get_result_template(object.score)}
+            <div class="${CSS.BUTTONS}">
+                <button class="button" id="${CSS.RESULT}">Check your answers</button>
+                <button class="button" onclick="location.hash = ''">Back to Quizzes</button>    
+            </div> 
         </div>
         `;
+    }
+
+    _get_percent_of_guessed({ correct, total }) {
+        return Math.floor((100 * correct) / total)
+    }
+
+    static _get_result_template({ correct, total, percent }) {
+        return `
+        <h1>Result:</h1>
+        <br>
+        <h2>${correct} of ${total}</h2>
+        <br>
+        <h2>${percent}%</h2>
+        `;
+    }
+
+    _show_results() {
+        const container = document.getElementById(COMPONENT_CSS);
+        container.innerHTML = new TestResult(this._get_score()).render();
     }
 }
 

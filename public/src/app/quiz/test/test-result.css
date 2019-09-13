@@ -1,0 +1,24 @@
+.test-result--results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.test-result--answer {
+    display: flex;
+    background-color: antiquewhite;
+    width: 600px;
+    height: 40px;
+    padding: 0 10px;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.test-result--answer__wrong {
+    background-color: coral;
+}
+
+.test-result--answer__right {
+    background-color: springgreen;
+}
